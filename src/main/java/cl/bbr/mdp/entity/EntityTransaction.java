@@ -1,6 +1,7 @@
 package cl.bbr.mdp.entity;
 
 import java.io.Serializable;
+import java.time.Instant;
 
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
@@ -21,15 +22,37 @@ public class EntityTransaction implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id" )
 	private Long id;
-	
+
 	@Column(name = "commerce" )
 	private String commerce;
-	
+
 	@Column(name = "amount")
 	private Integer amount;
 
 	@Column(name = "type")
 	private String type;
+
+	@Column(name = "user")
+	private String user;
+
+	@Column(name = "datetrx")
+	private Instant datetrx;
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public void setDatetrx(Instant datetrx) {
+		this.datetrx = datetrx;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public Instant getDatetrx() {
+		return datetrx;
+	}
 
 	public Long getId() {
 		return id;
@@ -69,7 +92,7 @@ public class EntityTransaction implements Serializable {
 
 	@Override
 	public String toString() {
-		return "EntityTransaction [id=" + id + ", commerce=" + commerce + ", amount=" + amount + ", type=" + type + "]";
+		return "EntityTransaction [id=" + id + ", commerce=" + commerce + ", amount=" + amount + ", type=" + type + ", user="+ user + ", datetrx=" + datetrx +"]" ;
 	}
 
 }
